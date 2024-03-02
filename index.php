@@ -103,14 +103,27 @@ Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà co
 $numbers = [];
 
 for ($i = 0; $i < 15; $i++) {
-    $newNumer = rand(1, 100);
-    if (in_array($newNumer, $numbers) === false) {
-        array_push($numbers, $newNumer);
+    $newNumber = rand(1, 100);
+    if (in_array($newNumber, $numbers) === false) {
+        array_push($numbers, $newNumber);
     };
 };
 
 var_dump($numbers);
 
+/*altra soluzione ciclo while
+$list = [];
+
+while (count($list)< 15){
+    //generate rand numb
+    $randomNumber = rand(1,100);
+    //check if the generated number is not in_array $list
+    if(!in_array($randomNumber, $list)){
+        $list = $randomNumber;
+    }
+    //push it
+};
+var_dump($list);*/
 
 /* Snack 5
 Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo.*/
@@ -228,12 +241,17 @@ foreach ($classe as $alunno) {
                         <p><?php echo $post['text'] ?></p>
                     </div>
                     <div class="card-footer">
-                         <?php $post['author']?>
+                        <?php $post['author'] ?>
                     </div>
                 </div>
             <?php endforeach; ?>
 
         </div>
+        <!--shortcut per echo NB la formula corta in wordpress non funziona bene e considerata bad practice 
+         <p><?= $sentence ?></p>
+        <p><?php echo $sentence ?></p>
+    -->
+
 
     </section>
 </body>

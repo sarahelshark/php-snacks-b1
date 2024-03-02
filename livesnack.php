@@ -22,9 +22,7 @@ var_dump(empty($_GET)); //se uso il metodo get nel form, quest supervariabile mi
     <form class="p-3" action="" method="get">
         <div class="mb-3 ">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" 
-            name="exampleInputEmail1"
-            class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+            <input type="text" name="exampleInputEmail1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
 
         </div>
         <div class="mb-3">
@@ -32,37 +30,37 @@ var_dump(empty($_GET)); //se uso il metodo get nel form, quest supervariabile mi
             <input class="form-control" type="text" name="name" id="name" required>
         </div>
         <label for="age" class="form-label">your age</label>
-        <input class="form-control mb-3" type="number" name="age" id="age" required>
+        <input class="form-control mb-3" type="text" name="age" id="age" required>
         </div>
 
         <button type="submit" class="btn btn-primary ">Submit</button>
     </form>
     <?php
-if (!empty($_GET)) {
+    if (!empty($_GET)) {
 
-    $name = $_GET['name'];
-    $email = $_GET['exampleInputEmail1'];
-    $age = $_GET['age'];
+        $name = $_GET['name'];
+        $email = $_GET['exampleInputEmail1'];
+        $age = $_GET['age'];
 
-    // Verifica che il nome sia più lungo di 3 caratteri
-    if (strlen($name) > 3) {
-        // Verifica che l'email contenga una chiocciola
-        if (strpos($email, '@') !== false) {
-            // Verifica che l'età sia un numero
-            if (is_numeric($age)) {
-                echo $_GET['name'] . ' tu hai ' . ' ' . $_GET['age'] . ' ' . 'anni e la tua email:' . ' ' . $_GET['exampleInputEmail1'] .', il tuo accesso riuscito';
+        // Verifica che il nome sia più lungo di 3 caratteri
+        if (strlen($name) > 3) {
+            // Verifica che l'email contenga una chiocciola
+            if (strpos($email, '@') !== false) {
+                // Verifica che l'età sia un numero
+                if (is_numeric($age)) {
+                    echo $_GET['name'] . ' tu hai ' . ' ' . $_GET['age'] . ' ' . 'anni e la tua email:' . ' ' . $_GET['exampleInputEmail1'] . ', il tuo accesso riuscito';
+                } else {
+                    echo "Accesso negato - L'età deve essere un numero";
+                }
             } else {
-                echo "Accesso negato - L'età deve essere un numero";
+                echo "Accesso negato - L'email deve contenere una chiocciola";
             }
         } else {
-            echo "Accesso negato - L'email deve contenere una chiocciola";
+            echo "Accesso negato - Il nome deve essere più lungo di 3 caratteri";
         }
-    } else {
-        echo "Accesso negato - Il nome deve essere più lungo di 3 caratteri";
     }
-}
-?>
-   
+    ?>
+
 </body>
 
 </html>
